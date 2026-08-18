@@ -1524,7 +1524,9 @@ if __name__ == "__main__":
     
     from mitmproxy.tools.main import mitmweb
     
-    sys.argv = [
+    port = os.environ.get("PORT", "8081")
+
+sys.argv = [
     "mitmweb",
     "-s", __file__,
     "-p", "20335",
