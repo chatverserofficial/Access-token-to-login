@@ -1523,8 +1523,8 @@ if __name__ == "__main__":
     """)
     
     from mitmproxy.tools.main import mitmweb
-    
-    port = os.environ.get("PORT", "8081")
+
+port = os.environ.get("PORT", "8081")
 
 sys.argv = [
     "mitmweb",
@@ -1534,9 +1534,9 @@ sys.argv = [
     "--web-host", "0.0.0.0",
     "--web-port", port
 ]
-    
-    try:
-        mitmweb()
-    except KeyboardInterrupt:
-        print("\n[INFO] Shutting down...")
-        sys.exit(0)
+
+try:
+    mitmweb()
+except KeyboardInterrupt:
+    print("\n[INFO] Shutting down...")
+    sys.exit(0)
