@@ -1508,35 +1508,24 @@ if __name__ == "__main__":
     ║                    UID/JWT Manager v5.0                         ║
     ║                   (Advanced Token System)                        ║
     ║                          Starting on port 20335                  ║
-    ╠══════════════════════════════════════════════════════════════════╣
-    ║  Token Generation URLs:                                         ║
-    ║  • Web UI:     http://localhost:20335/token                     ║
-    ║  • API:        http://localhost:20335/api/generate_token        ║
-    ║  • Simple:     http://localhost:20335/generate                  ║
-    ║  • Unlimited:  http://localhost:20335/generate?unlimited        ║
-    ║  • 30 Days:    http://localhost:20335/generate?30day            ║
-    ║                                                                  ║
-    ║  Default Password: test                                         ║
-    ║                                                                  ║
-    ║  Press Ctrl+C to stop                                           ║
     ╚══════════════════════════════════════════════════════════════════╝
     """)
-    
+
     from mitmproxy.tools.main import mitmweb
 
-port = os.environ.get("PORT", "8081")
+    port = os.environ.get("PORT", "8081")
 
-sys.argv = [
-    "mitmweb",
-    "-s", __file__,
-    "-p", "20335",
-    "--set", "block_global=false",
-    "--web-host", "0.0.0.0",
-    "--web-port", port
-]
+    sys.argv = [
+        "mitmweb",
+        "-s", __file__,
+        "-p", "20335",
+        "--set", "block_global=false",
+        "--web-host", "0.0.0.0",
+        "--web-port", port
+    ]
 
-try:
-    mitmweb()
-except KeyboardInterrupt:
-    print("\n[INFO] Shutting down...")
-    sys.exit(0)
+    try:
+        mitmweb()
+    except KeyboardInterrupt:
+        print("\n[INFO] Shutting down...")
+        sys.exit(0)
