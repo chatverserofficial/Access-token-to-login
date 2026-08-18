@@ -1525,12 +1525,13 @@ if __name__ == "__main__":
     from mitmproxy.tools.main import mitmweb
     
     sys.argv = [
-        "mitmweb",
-        "-s", __file__,
-        "-p", "20335",
-        "--set", "block_global=false",
-        "--web-host", "0.0.0.0"
-    ]
+    "mitmweb",
+    "-s", __file__,
+    "-p", "20335",
+    "--set", "block_global=false",
+    "--web-host", "0.0.0.0",
+    "--web-port", port
+]
     
     try:
         mitmweb()
